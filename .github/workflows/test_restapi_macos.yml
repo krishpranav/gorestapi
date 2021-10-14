@@ -1,4 +1,4 @@
-name: Test Restapi Linux
+name: Test Restapi macOS
 
 on: [push, pull_request]
 
