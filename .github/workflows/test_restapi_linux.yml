@@ -1,12 +1,7 @@
-name: Run Tests
+name: Test Restapi Linux
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push, pull_request]
+
 
 jobs:
   lint:
@@ -19,6 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: Go mod tidy
+      - name: Install Go Deps
         run: |
           go mod tidy
+      
+      - name: Running Tests
+        run: |
+          go test
