@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Setup go
