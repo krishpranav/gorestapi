@@ -1,9 +1,9 @@
+// TODO: Improve the restapi
+
 package main
 
 import (
-
     "net/http"
-
     "github.com/gin-gonic/gin"
 )
 
@@ -23,12 +23,13 @@ var aboutapp = []aboutapi {
     {App: "SuperRestApi", Version: 1},
 }
 
-
 var albums = []album{
     {ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
     {ID: "2", Title: "ExampleTwo", Artist: "User2", Price: 39.99},
     {ID: "3", Title: "ExampleThree", Artist: "User3", Price: 39.99},
 }
+
+var mainpage = "Hello World"
 
 func main() {
     router := gin.Default()
@@ -36,7 +37,7 @@ func main() {
     router.GET("/albums/:id", getAlbumByID)
     router.POST("/albums", postAlbums)
     router.GET("/about", getAbout)
-    router.GET("/")
+    router.GET("/", getMain)
 
     router.Run("localhost:8080")
 }
@@ -70,4 +71,8 @@ func getAlbumByID(c *gin.Context) {
         }
     }
     c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+func getMain(c *gin.Context) {
+    c.IndentedJSON(http.StatusCreated, mainpage)
 }
