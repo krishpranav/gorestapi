@@ -1,5 +1,3 @@
-// TODO: Improve the restapi
-
 package main
 
 import (
