@@ -76,3 +76,4 @@ func getAlbumByID(c *gin.Context) {
 func getMain(c *gin.Context) {
     c.IndentedJSON(http.StatusCreated, mainpage)
 }
+
