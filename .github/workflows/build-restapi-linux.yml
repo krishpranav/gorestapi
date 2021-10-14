@@ -21,6 +21,24 @@ jobs:
   building:
     runs-on: ubuntu-latest
     steps:
-        - name: Test
+      - name: Setup Golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16'
+          
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+        
+      
+      - name: Check Golang Version
+        run: |
+          go version
+      
+      - name: Getting Golang Deps
           run: |
-            go version
+            go mod tidy
+
+      - name: Running gorestapi
+          run: |
