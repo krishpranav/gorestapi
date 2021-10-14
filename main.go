@@ -1,7 +1,6 @@
 package main
 
 import (
-    // "api/about"
 
     "net/http"
 
@@ -15,14 +14,15 @@ type album struct {
     Price  float64 `json:"price"`
 }
 
-type about struct {
+type aboutapi struct {
     App string `json:"app"`
     Version float64 `json:"version"`
 }
 
-var aboutapp = []about {
+var aboutapp = []aboutapi {
     {App: "SuperRestApi", Version: 1},
 }
+
 
 var albums = []album{
     {ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
@@ -36,6 +36,7 @@ func main() {
     router.GET("/albums/:id", getAlbumByID)
     router.POST("/albums", postAlbums)
     router.GET("/about", getAbout)
+    router.GET("/")
 
     router.Run("localhost:8080")
 }
@@ -43,7 +44,6 @@ func main() {
 func getAlbums(c *gin.Context) {
     c.IndentedJSON(http.StatusOK, albums)
 }
-
 
 func getAbout(c *gin.Context) {
     c.IndentedJSON(http.StatusOK, aboutapp)
