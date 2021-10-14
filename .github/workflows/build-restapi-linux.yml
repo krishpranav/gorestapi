@@ -6,7 +6,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  lint:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Golang
@@ -17,3 +17,10 @@ jobs:
       - name: Check Golang Version
         run: |
           go version
+  
+  building:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Test
+          run: |
+            go version
