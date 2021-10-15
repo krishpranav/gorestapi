@@ -2,20 +2,9 @@
 
 ### make sure you have the latest version of golang
 
-### macOS:
+## Building:
 ```
-$ git clone https://github.com/krishpranav/gorestapi.git
-$ cd gorestapi
-$ go mod tidy 
-$ go run main.go
-```
-
-### linux:
-```
-$ git clone https://github.com/krishpranav/gorestapi.git
-$ cd gorestapi
-$ go mod tidy 
-$ go run main.go
+ruby setup.rb
 ```
 
 ### running tests:
@@ -25,9 +14,21 @@ $ go test
 
 ### testing the api:
 
-- curl http://localhost:8080/
+## Main page
 - main page you will get response ```Hello World```
+```
+$ curl http://localhost:8080/
+```
 
 
-- curl http://localhost:8080/albums
-- get response of the albums that are stored
+## Get response about the albums 
+- get response of the albums that are stored locally
+```
+$ curl http://localhost:8080/albums
+```
+
+## About restapi response
+- you will get to know about the restapi version, author by curling this request
+```
+$ curl http://localhost:8080/about
+```
