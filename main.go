@@ -25,6 +25,7 @@ var albums = []album{
     {ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
     {ID: "2", Title: "ExampleTwo", Artist: "User2", Price: 39.99},
     {ID: "3", Title: "ExampleThree", Artist: "User3", Price: 39.99},
+    {ID: "4", Title: "ExampleFour", Artist: "User4", Price: 39.99},
 }
 
 var mainpage = "Hello World"
