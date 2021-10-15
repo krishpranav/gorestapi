@@ -6,7 +6,7 @@ A Simple REST API Build Using Golang
 ## About gorestapi:
 - a simple music restapi that retrives info about the author, album name, price of it
 
-- get the installation guide from [here]()
+- get the installation guide from [here](https://github.com/krishpranav/gorestapi/blob/master/docs/buildguide.md)
 
 ## Author:
 - krishpranav [github](https://github.com/krishpranav)
