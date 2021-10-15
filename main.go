@@ -38,6 +38,8 @@ func main() {
     router.POST("/albums", postAlbums)
     router.GET("/about", getAbout)
     router.GET("/", getMain)
+    router.StaticFile("/index", "templates/index.html")
+
 
     router.Run("localhost:8080")
 }
