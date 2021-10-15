@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class TestRestApi
     def testrestapi
         sleep 1
