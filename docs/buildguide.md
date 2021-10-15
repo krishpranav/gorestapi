@@ -7,11 +7,6 @@
 ruby setup.rb
 ```
 
-### running tests:
-```
-$ go test
-```
-
 ### testing the api:
 
 ## Main page
@@ -31,4 +26,9 @@ $ curl http://localhost:8080/albums
 - you will get to know about the restapi version, author by curling this request
 ```
 $ curl http://localhost:8080/about
+```
+
+### running tests:
+```
+$ go test
 ```
