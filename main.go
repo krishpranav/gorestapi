@@ -14,11 +14,12 @@ type album struct {
 
 type aboutapi struct {
     App string `json:"app"`
+    Github string `json:"github"`
     Version float64 `json:"version"`
 }
 
 var aboutapp = []aboutapi {
-    {App: "SuperRestApi", Version: 1},
+    {App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
 }
 
 var albums = []album{
