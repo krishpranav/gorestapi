@@ -3,8 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	//"api/json"
-	
+	"github.com/krishpranav/gorestapi/api/aboutapi"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
@@ -16,9 +15,9 @@ type album struct {
 	Price  float64 `json:"price"`
 }
 
-//var aboutapp = []json.Aboutapi{
-//	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
-//}
+var aboutapp = []about.Aboutapi{
+	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
+}
 
 var albums = []album{
 	{ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
