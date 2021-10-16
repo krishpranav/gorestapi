@@ -1,6 +1,6 @@
 package artist
 
-type Album struct {
+type Artist struct {
 	Name  string  `json:"title"`
 	Location string  `json:"artist"`
 	JoinedAt  float64 `json:"price"`
