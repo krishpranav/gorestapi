@@ -1,11 +1,8 @@
 package main
 
 import (
-    "github.com/gin-gonic/gin"
     "log"
-
-    //"github.com/krishpranav/gorestapi/api/aboutapi"
-    //_ "github.com/krishpranav/gorestapi/api/aboutapi"
+    "github.com/gin-gonic/gin"
     "net/http"
 )
 
@@ -40,10 +37,15 @@ func main() {
     router.GET("/albums", getAlbums)
     router.GET("/albums/:id", getAlbumByID)
     router.POST("/albums", postAlbums)
-    //router.GET("/about", aboutapi.getAbout)
     router.GET("/", getMain)
-    router.StaticFile("/index", "templates/index.html")
 
+    //router.Static("/views", "./frontend")
+    //router.StaticFS("/index", http.Dir("./frontend/dist"))
+
+
+    if err := router.Run(":8080"); err != nil {
+        log.Fatal("Server Run Failed:", err)
+    }
 
     router.Run("localhost:8080")
 }
