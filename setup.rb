@@ -10,6 +10,11 @@ class Install
 
 end
 
+class InstallFrontend
+    # need to develop this block
+end
+
+
 def main
     function = Install.new
     function.installrestapi
