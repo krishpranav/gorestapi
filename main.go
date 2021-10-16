@@ -2,6 +2,8 @@ package main
 
 import (
     "github.com/gin-gonic/gin"
+    "log"
+
     //"github.com/krishpranav/gorestapi/api/aboutapi"
     //_ "github.com/krishpranav/gorestapi/api/aboutapi"
     "net/http"
@@ -81,3 +83,8 @@ func getMain(c *gin.Context) {
     c.IndentedJSON(http.StatusCreated, mainpage)
 }
 
+func checkError(err error) {
+    if err != nil {
+        log.Panic(err)
+    }
+}
