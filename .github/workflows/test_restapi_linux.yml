@@ -21,3 +21,5 @@ jobs:
       - name: Running Tests
         run: |
           go test
+          cd api/aboutapi
+          go test
