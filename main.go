@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/krishpranav/gorestapi/api/aboutapi"
 	"github.com/krishpranav/gorestapi/api/album"
+	"github.com/krishpranav/gorestapi/api/artist"
 	"log"
 	"net/http"
 )
@@ -14,11 +15,19 @@ var aboutapp = []about.Aboutapi{
 }
 
 var albums = []album.Album{
-	{ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
-	{ID: "2", Title: "ExampleTwo", Artist: "User2", Price: 39.99},
-	{ID: "3", Title: "ExampleThree", Artist: "User3", Price: 39.99},
-	{ID: "4", Title: "ExampleFour", Artist: "User4", Price: 39.99},
-	{ID: "5", Title: "ExampleFive", Artist: "User5", Price: 39.99},
+	{ID: "1", Title: "ExampleOne", Artist: "ArtistOne", Price: 39.99},
+	{ID: "2", Title: "ExampleTwo", Artist: "ArtistTwo", Price: 39.99},
+	{ID: "3", Title: "ExampleThree", Artist: "ArtistThree", Price: 39.99},
+	{ID: "4", Title: "ExampleFour", Artist: "ArtistFour", Price: 39.99},
+	{ID: "5", Title: "ExampleFive", Artist: "ArtistFive", Price: 39.99},
+}
+
+var artists = []artist.Artist {
+	{Name: "ArtistOne", Location: "IN", JoinedAt: 2017},
+	{Name: "ArtistTwo", Location: "USA", JoinedAt: 2018},
+	{Name: "ArtistThree", Location: "UK", JoinedAt: 2019},
+	{Name: "ArtistFour", Location: "IN", JoinedAt: 2020},
+	{Name: "ArtistFive", Location: "USA", JoinedAt: 2021},
 }
 
 var mainpage = "Hello World"
@@ -34,7 +43,9 @@ func main() {
 		router.GET("/albums/:id", getAlbumByID)
 		router.POST("/albums", postAlbums)
 		router.GET("/about", getAbout)
+		router.GET("/artist", getArtistData)
 		router.GET("/", getMain)
+
 	}
 
 	if err := router.Run(":8080"); err != nil {
@@ -51,6 +62,10 @@ func getAlbums(c *gin.Context) {
 
 func getAbout(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, aboutapp)
+}
+
+func getArtistData(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, artists)
 }
 
 func postAlbums(c *gin.Context) {
