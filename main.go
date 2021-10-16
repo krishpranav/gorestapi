@@ -1,13 +1,12 @@
 package main
 
 import (
-	"log"
-	"net/http"
-	"github.com/krishpranav/gorestapi/api/aboutapi"
-	//"github.com/krishpranav/gorestapi/api/album"
-	"github.com/krishpranav/gorestapi/api/album"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
+	"github.com/krishpranav/gorestapi/api/aboutapi"
+	"github.com/krishpranav/gorestapi/api/album"
+	"log"
+	"net/http"
 )
 
 var aboutapp = []about.Aboutapi{
