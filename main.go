@@ -10,7 +10,7 @@ import (
 )
 
 var aboutapp = []about.Aboutapi{
-	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
+	{App: "SuperRestApi", Author: "krishpranav", Github: "https://github.com/krishpranav/gorestapi", Version: 1,},
 }
 
 var albums = []album.Album{
