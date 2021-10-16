@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
-
+	//"api/json"
+	
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
@@ -15,15 +16,9 @@ type album struct {
 	Price  float64 `json:"price"`
 }
 
-type aboutapi struct {
-	App     string  `json:"app"`
-	Github  string  `json:"github"`
-	Version float64 `json:"version"`
-}
-
-var aboutapp = []aboutapi{
-	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
-}
+//var aboutapp = []json.Aboutapi{
+//	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
+//}
 
 var albums = []album{
 	{ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
@@ -52,6 +47,7 @@ func main() {
 	if err := router.Run(":8080"); err != nil {
 		log.Fatal("Server Run Failed:", err)
 	}
+
 
 	router.Run("localhost:8080")
 }
