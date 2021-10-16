@@ -37,7 +37,7 @@ var mainpage = "Hello World"
 func main() {
 	router := gin.Default()
 
-	router.Use(static.Serve("/", static.LocalFile("./views/build", true)))
+	router.Use(static.Serve("/", static.LocalFile("./views/dist", true)))
 
 	api := router.Group("/api")
 	{
