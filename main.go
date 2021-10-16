@@ -2,7 +2,8 @@ package main
 
 import (
     "github.com/gin-gonic/gin"
-    //aboutapi "github.com/krishpranav/gorestapi/api/aboutapi"
+    //"github.com/krishpranav/gorestapi/api/aboutapi"
+    //_ "github.com/krishpranav/gorestapi/api/aboutapi"
     "net/http"
 )
 
@@ -13,15 +14,15 @@ type album struct {
     Price  float64 `json:"price"`
 }
 
-//type aboutapi struct {
-//    App string `json:"app"`
-//    Github string `json:"github"`
-//    Version float64 `json:"version"`
-//}
+type aboutapi struct {
+   App string `json:"app"`
+   Github string `json:"github"`
+   Version float64 `json:"version"`
+}
 
-//var aboutapp = []aboutapi {
-//    {App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
-//}
+var aboutapp = []aboutapi {
+   {App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
+}
 
 var albums = []album{
     {ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
@@ -37,7 +38,7 @@ func main() {
     router.GET("/albums", getAlbums)
     router.GET("/albums/:id", getAlbumByID)
     router.POST("/albums", postAlbums)
-    //router.GET("/about", getAbout)
+    //router.GET("/about", aboutapi.getAbout)
     router.GET("/", getMain)
     router.StaticFile("/index", "templates/index.html")
 
@@ -49,9 +50,9 @@ func getAlbums(c *gin.Context) {
     c.IndentedJSON(http.StatusOK, albums)
 }
 
-//func getAbout(c *gin.Context) {
-//    c.IndentedJSON(http.StatusOK, aboutapp)
-//}
+func getAbout(c *gin.Context){
+  c.IndentedJSON(http.StatusOK, aboutapp)
+}
 
 func postAlbums(c *gin.Context) {
     var newAlbum album
