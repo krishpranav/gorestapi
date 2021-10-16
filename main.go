@@ -4,22 +4,17 @@ import (
 	"log"
 	"net/http"
 	"github.com/krishpranav/gorestapi/api/aboutapi"
+	//"github.com/krishpranav/gorestapi/api/album"
+	"github.com/krishpranav/gorestapi/api/album"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
-
-type album struct {
-	ID     string  `json:"id"`
-	Title  string  `json:"title"`
-	Artist string  `json:"artist"`
-	Price  float64 `json:"price"`
-}
 
 var aboutapp = []about.Aboutapi{
 	{App: "SuperRestApi", Version: 1, Github: "https://github.com/krishpranav/gorestapi"},
 }
 
-var albums = []album{
+var albums = []album.Album{
 	{ID: "1", Title: "ExampleOne", Artist: "User1", Price: 39.99},
 	{ID: "2", Title: "ExampleTwo", Artist: "User2", Price: 39.99},
 	{ID: "3", Title: "ExampleThree", Artist: "User3", Price: 39.99},
@@ -60,7 +55,7 @@ func getAbout(c *gin.Context) {
 }
 
 func postAlbums(c *gin.Context) {
-	var newAlbum album
+	var newAlbum album.Album
 
 	if err := c.BindJSON(&newAlbum); err != nil {
 		return
