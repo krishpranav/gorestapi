@@ -12,7 +12,7 @@ import (
 )
 
 var aboutapp = []about.Aboutapi{
-	{App: "gorestapi", Author: "krishpranav", Github: "https://github.com/krishpranav/gorestapi", Version: 1,},
+	{App: "gorestapi", Author: "krishpranav", Github: "https://github.com/krishpranav/gorestapi", Version: 2},
 }
 
 var albums = []album.Album{
