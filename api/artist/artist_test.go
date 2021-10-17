@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-var ArtistTest = []Artist {
+var ArtistVar = []Artist {
 	{Name: "Some", Location: "Some where in the world", JoinedAt: 100},
 }
 
 func artisttest(t *testing.T) {
-	fmt.Println(ArtistTest)
+	fmt.Println(ArtistVar)
 }
