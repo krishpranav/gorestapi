@@ -50,7 +50,8 @@ func main() {
 	}
 
 	if err := router.Run(":8080"); err != nil {
-		log.Fatal("Server Run Failed:", err)
+		log.Fatal("Server Run Failed:")
+		log.Panic(err)
 	}
 
 
@@ -107,8 +108,3 @@ func getMain(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, mainpage)
 }
 
-func checkError(err error) {
-	if err != nil {
-		log.Panic(err)
-	}
-}
