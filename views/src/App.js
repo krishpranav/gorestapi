@@ -17,10 +17,18 @@ class ApiRequest extends React.Component {
           .then((data) => console.log('Profile Details', data));
   }
 
+  aboutrequest() {
+      const aboutapi = 'http://localhost:8080/about';
+      fetch(aboutapi)
+          .then((response) => response.json())
+          .then((data) => console.log('About Api Details', data));
+  }
+
     render() {
     return(
-        this.albumrequest(),
         this.profilerequest(),
+        this.albumrequest(),
+        this.aboutrequest(),
       <div className="App">
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -31,8 +39,6 @@ class ApiRequest extends React.Component {
     )
   }
 }
-
-
 
 
 export default ApiRequest;
