@@ -1,26 +1,25 @@
 import React from 'react';
-import  ReactDOM  from 'react-dom';
+import logo from './logo.svg'
+import './App.css'
 
-class AlbumComponenet extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state={
-      albums:[]
-    };
-  }
-
+class myComponent extends React.Component {
   componentDidMount() {
-    fetch("http://localhost:8080/albums")
+    const apiUrl = 'http://localhost:8080/albums';
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => console.log('Album Details', data));
   }
-
-  render() {
+    render() {
     return(
-      <div>
-        <h2>Albums Details</h2>
+      <div className="App">
+        <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        
+        <h2>Check Out The Console For Album Details</h2>
+        </header>
       </div>
     )
   }
 }
 
-export default AlbumComponenet;
+export default myComponent;
