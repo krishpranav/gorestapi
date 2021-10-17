@@ -5,7 +5,7 @@ class TestRestApi
         sleep 1
         system('go mod tidy')
         sleep 1
-        system('go run main.go')
+        system('go run test')
     end
 end
 
