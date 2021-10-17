@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg'
 import './App.css'
 
-class myComponent extends React.Component {
+class AlbumApiRequest extends React.Component {
   componentDidMount() {
     const apiUrl = 'http://localhost:8080/albums';
     fetch(apiUrl)
@@ -22,4 +22,4 @@ class myComponent extends React.Component {
   }
 }
 
-export default myComponent;
+export default AlbumApiRequest;
