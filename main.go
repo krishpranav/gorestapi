@@ -55,13 +55,13 @@ func main() {
 
 	}
 
+	router.Run("localhost:8080")
+
+
 	if err := router.Run(":8080"); err != nil {
 		log.Fatal("Server Run Failed:")
 		log.Panic(err)
 	}
-
-
-	router.Run("localhost:8080")
 }
 
 func getProfile(c *gin.Context) {
