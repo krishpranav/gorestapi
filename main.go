@@ -44,6 +44,7 @@ func main() {
 		router.POST("/albums", postAlbums)
 		router.GET("/about", getAbout)
 		router.GET("/artist", getArtistData)
+		router.POST("/artist", postArtist)
 		router.GET("/", getMain)
 
 	}
@@ -66,6 +67,17 @@ func getAbout(c *gin.Context) {
 
 func getArtistData(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, artists)
+}
+
+func postArtist(c *gin.Context) {
+	var newArtist artist.Artist
+
+	if err := c.BindJSON(&newArtist); err != nil {
+		return
+	}
+
+	artists = append(artists, newArtist)
+	c.IndentedJSON(http.StatusCreated, newArtist)
 }
 
 func postAlbums(c *gin.Context) {
