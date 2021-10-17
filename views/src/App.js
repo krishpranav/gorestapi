@@ -2,15 +2,25 @@ import React from 'react';
 import logo from './logo.svg'
 import './App.css'
 
-class AlbumApiRequest extends React.Component {
-  componentDidMount() {
-    const apiUrl = 'http://localhost:8080/albums';
-    fetch(apiUrl)
+class ApiRequest extends React.Component {
+  albumrequest() {
+    const album = 'http://localhost:8080/albums';
+    fetch(album)
       .then((response) => response.json())
       .then((data) => console.log('Album Details', data));
   }
+
+  profilerequest() {
+      const profile = 'http://localhost:8080/profile';
+      fetch(profile)
+          .then((response) => response.json())
+          .then((data) => console.log('Profile Details', data));
+  }
+
     render() {
     return(
+        this.albumrequest(),
+        this.profilerequest(),
       <div className="App">
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -22,4 +32,7 @@ class AlbumApiRequest extends React.Component {
   }
 }
 
-export default AlbumApiRequest;
+
+
+
+export default ApiRequest;
