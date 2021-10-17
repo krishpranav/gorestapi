@@ -9,6 +9,6 @@ var AboutVar = []Aboutapi {
 	{App: "Test"},
 }
 
-func abouttest(t *testing.T) {
+func AboutTest(t *testing.T) {
 	fmt.Println(AboutVar)
 }
