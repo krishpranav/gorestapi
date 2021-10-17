@@ -32,7 +32,7 @@ var artists = []artist.Artist {
 }
 
 var profile = []aboutme.Aboutme {
-	{User: "UserOne", JoinedAt: 2020, Toptracks: "Song1, Song2, Song3", Following: "ArtistOne"},
+	{User: "UserOne", JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne"},
 }
 
 var mainpage = "Hello World"
