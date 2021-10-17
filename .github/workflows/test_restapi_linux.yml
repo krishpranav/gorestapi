@@ -29,5 +29,5 @@ jobs:
 
       - name: Running Test in album
         run: |
-          cd album/
+          cd api/album/
           go run test
