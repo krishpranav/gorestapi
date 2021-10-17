@@ -7,7 +7,7 @@ import (
 )
 
 /* perform a test request */
-func performRequest(t *testing.T) {
+func performRequest(t *testing.T, err error) {
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -15,6 +15,10 @@ func performRequest(t *testing.T) {
 		})
 	})
 	r.Run()
+
+	if err != nil {
+		panic(err)
+	}
 
 
 }
