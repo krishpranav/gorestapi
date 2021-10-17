@@ -25,3 +25,18 @@ jobs:
         run: |
           cd api/aboutapi
           go test
+
+      - name: Running Test in album
+        run: |
+          cd api/album
+          go test
+
+      - name: Running Test in artist
+        run: |
+          cd api/artist
+          go test
+
+      - name: Running Test in profile
+        run: |
+          cd api/profile
+          go test
