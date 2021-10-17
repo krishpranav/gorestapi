@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-var album = []Album {
+var AlbumVar = []Album {
 	{ID: "1", Title: "Hello"},
 }
 
-func albumtest(t *testing.T) {
-	fmt.Println(album)
+func AlbumTest(t *testing.T) {
+	fmt.Println(AlbumVar)
 }
