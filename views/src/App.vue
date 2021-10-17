@@ -12,8 +12,17 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+
+  data() {
+    return {
+      myStyle: {
+        backgroundColor: "#16a085"
+      }
+    }
   }
 }
+
 </script>
 
 <style>
