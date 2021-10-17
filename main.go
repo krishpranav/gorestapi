@@ -6,6 +6,7 @@ import (
 	"github.com/krishpranav/gorestapi/api/aboutapi"
 	"github.com/krishpranav/gorestapi/api/album"
 	"github.com/krishpranav/gorestapi/api/artist"
+	"github.com/krishpranav/gorestapi/api/profile"
 	"log"
 	"net/http"
 )
@@ -30,6 +31,10 @@ var artists = []artist.Artist {
 	{Name: "ArtistFive", Location: "USA", JoinedAt: 2021},
 }
 
+var profile = []aboutme.Aboutme {
+	{User: "UserOne", JoinedAt: 2020, Toptracks: "Song1, Song2, Song3", Following: "ArtistOne"},
+}
+
 var mainpage = "Hello World"
 
 func main() {
@@ -39,13 +44,14 @@ func main() {
 
 	api := router.Group("/api")
 	{
-		api.GET("/albums", getAlbums)
-		router.GET("/albums/:id", getAlbumByID)
+		router.GET("/albums", getAlbums)
+		api.GET("/albums/:id", getAlbumByID)
 		router.POST("/albums", postAlbums)
 		router.GET("/about", getAbout)
 		router.GET("/artist", getArtistData)
 		router.POST("/artist", postArtist)
 		router.GET("/", getMain)
+		router.GET("/profile", getProfile)
 
 	}
 
@@ -56,6 +62,10 @@ func main() {
 
 
 	router.Run("localhost:8080")
+}
+
+func getProfile(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, profile)
 }
 
 func getAlbums(c *gin.Context) {
