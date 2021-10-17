@@ -16,7 +16,12 @@ jobs:
       - name: Install Go Deps
         run: |
           go mod tidy
-      
+
       - name: Running Tests
         run: |
+          go test
+
+      - name: Running Test in aboutapi
+        run: |
+          cd api/aboutapi
           go test
