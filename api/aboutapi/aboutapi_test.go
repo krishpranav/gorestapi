@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-var aboutapi = []Aboutapi {
+var AboutVar = []Aboutapi {
 	{App: "Test"},
 }
 
-func about(t *testing.T) {
-	fmt.Println(aboutapi)
+func abouttest(t *testing.T) {
+	fmt.Println(AboutVar)
 }
