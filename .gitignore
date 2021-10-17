@@ -8,3 +8,6 @@
 .DS_Store
 
 go.sum
+
+# builded binary of main.go
+gorestapi
