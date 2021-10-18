@@ -6,7 +6,9 @@ import (
 	"github.com/krishpranav/gorestapi/api/aboutapi"
 	"github.com/krishpranav/gorestapi/api/album"
 	"github.com/krishpranav/gorestapi/api/artist"
+	//"github.com/krishpranav/gorestapi/api/profile"
 	"github.com/krishpranav/gorestapi/api/profile"
+	//"github.com/krishpranav/gorestapi/api/profile"
 	"log"
 	"net/http"
 )
@@ -31,7 +33,7 @@ var artists = []artist.Artist {
 	{Name: "ArtistFive", Location: "USA", JoinedAt: 2021},
 }
 
-var profiles = []aboutme.Aboutme {
+var profiles = []profile.Profile {
 	{User: "UserOne", JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
 	{User: "UserTwo", JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
 }
@@ -53,7 +55,7 @@ func main() {
 		router.POST("/artist", postArtist)
 		router.GET("/", getMain)
 		router.GET("/profile", getProfile)
-		//router.POST("/profile", getProfile)
+		router.POST("/profile", postProfile)
 
 	}
 
@@ -91,6 +93,17 @@ func postArtist(c *gin.Context) {
 
 	artists = append(artists, newArtist)
 	c.IndentedJSON(http.StatusCreated, newArtist)
+}
+
+func postProfile(c *gin.Context) {
+	var newProfile profile.Profile
+
+	if err := c.BindJSON(&newProfile); err != nil {
+		return
+	}
+
+	profiles = append(profiles, newProfile)
+	c.IndentedJSON(http.StatusCreated, newProfile)
 }
 
 func postAlbums(c *gin.Context) {
