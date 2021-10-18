@@ -1,6 +1,6 @@
-package aboutme
+package profile
 
-type Aboutme struct {
+type Profile struct {
 	User string `json:"user"`
 	JoinedAt float64 `json:"joined-at"`
 	Toptracks string `json:"toptracks"`

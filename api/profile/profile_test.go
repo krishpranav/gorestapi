@@ -1,4 +1,4 @@
-package aboutme
+package profile
 
 import (
 	"fmt"
