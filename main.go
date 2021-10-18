@@ -6,9 +6,7 @@ import (
 	"github.com/krishpranav/gorestapi/api/aboutapi"
 	"github.com/krishpranav/gorestapi/api/album"
 	"github.com/krishpranav/gorestapi/api/artist"
-	//"github.com/krishpranav/gorestapi/api/profile"
 	"github.com/krishpranav/gorestapi/api/profile"
-	//"github.com/krishpranav/gorestapi/api/profile"
 	"log"
 	"net/http"
 )
