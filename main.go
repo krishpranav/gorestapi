@@ -31,8 +31,9 @@ var artists = []artist.Artist {
 	{Name: "ArtistFive", Location: "USA", JoinedAt: 2021},
 }
 
-var profile = []aboutme.Aboutme {
+var profiles = []aboutme.Aboutme {
 	{User: "UserOne", JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
+	{User: "UserTwo", JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
 }
 
 var mainpage = "Hello World"
@@ -52,6 +53,7 @@ func main() {
 		router.POST("/artist", postArtist)
 		router.GET("/", getMain)
 		router.GET("/profile", getProfile)
+		//router.POST("/profile", getProfile)
 
 	}
 
@@ -65,7 +67,7 @@ func main() {
 }
 
 func getProfile(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, profile)
+	c.IndentedJSON(http.StatusOK, profiles)
 }
 
 func getAlbums(c *gin.Context) {
