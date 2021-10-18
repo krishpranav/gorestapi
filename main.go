@@ -15,6 +15,7 @@ var aboutapp = []about.Aboutapi{
 	{App: "gorestapi", Author: "krishpranav", Github: "https://github.com/krishpranav/gorestapi", Version: 2},
 }
 
+
 var albums = []album.Album{
 	{ID: "1", Title: "ExampleOne", Artist: "ArtistOne", Price: 39.99},
 	{ID: "2", Title: "ExampleTwo", Artist: "ArtistTwo", Price: 39.99},
@@ -32,8 +33,8 @@ var artists = []artist.Artist {
 }
 
 var profiles = []profile.Profile {
-	{User: "UserOne", JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
-	{User: "UserTwo", JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
+	{User: "UserOne", Password: "",JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
+	{User: "UserTwo", Password: "",JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
 }
 
 var mainpage = "Hello World"
