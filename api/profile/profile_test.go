@@ -5,12 +5,12 @@ import (
 	"testing"
 )
 
-var Profile = []Aboutme {
+var ProfileTest = []Profile {
 	{User: "Some", JoinedAt: 100, Toptracks: "Trackone", Following: "SomeOne"},
 }
 
 func profiletest(t *testing.T, err error) {
-	fmt.Println(Profile)
+	fmt.Println(ProfileTest)
 
 	if err != nil {
 		panic(err)
