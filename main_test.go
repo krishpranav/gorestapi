@@ -24,7 +24,7 @@ func performRequest(t *testing.T, err error) {
 }
 
 /* perform a test file for checking frontend is working */
-func performFrontend(t *testing.T) {
+func performFrontend(t *testing.T, err error) {
 	r := gin.Default()
 	r.Use(static.Serve("/", static.LocalFile("./views/dist", true)))
 
@@ -35,6 +35,10 @@ func performFrontend(t *testing.T) {
 				"message": "test",
 			})
 		})
+	}
+
+	if err != nil {
+		panic(err)
 	}
 
 	r.Run()
