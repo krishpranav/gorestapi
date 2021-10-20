@@ -1,10 +1,10 @@
-name: Test Restapi Linux
+name: RestApi Test
 
 on: [push, pull_request]
 
 
 jobs:
-  build:
+  linuxbuild:
     runs-on: ubuntu-latest
     steps:
       - name: Setup go
@@ -42,7 +42,7 @@ jobs:
           cd api/profile
           go test
 
-  buildmacos:
+  macosbuild:
     runs-on: macos-latest
     steps:
       - name: Setup go
