@@ -1,20 +1,21 @@
 package main
 
 import (
-	"github.com/gin-gonic/contrib/static"
-	"github.com/gin-gonic/gin"
-	"github.com/krishpranav/gorestapi/api/aboutapi"
-	"github.com/krishpranav/gorestapi/api/album"
-	"github.com/krishpranav/gorestapi/api/artist"
-	"github.com/krishpranav/gorestapi/api/profile"
 	"log"
 	"net/http"
+
+	"github.com/gin-gonic/contrib/static"
+	"github.com/gin-gonic/gin"
+	about "github.com/krishpranav/gorestapi/api/aboutapi"
+	"github.com/krishpranav/gorestapi/api/album"
+	"github.com/krishpranav/gorestapi/api/artist"
+	"github.com/krishpranav/gorestapi/api/home"
+	"github.com/krishpranav/gorestapi/api/profile"
 )
 
 var aboutapp = []about.Aboutapi{
 	{App: "gorestapi", Author: "krishpranav", Github: "https://github.com/krishpranav/gorestapi", Version: 2},
 }
-
 
 var albums = []album.Album{
 	{ID: "1", Title: "ExampleOne", Artist: "ArtistOne", Price: 39.99},
@@ -24,7 +25,7 @@ var albums = []album.Album{
 	{ID: "5", Title: "ExampleFive", Artist: "ArtistFive", Price: 39.99},
 }
 
-var artists = []artist.Artist {
+var artists = []artist.Artist{
 	{Name: "ArtistOne", Location: "IN", JoinedAt: 2017},
 	{Name: "ArtistTwo", Location: "USA", JoinedAt: 2018},
 	{Name: "ArtistThree", Location: "UK", JoinedAt: 2019},
@@ -32,9 +33,15 @@ var artists = []artist.Artist {
 	{Name: "ArtistFive", Location: "USA", JoinedAt: 2021},
 }
 
-var profiles = []profile.Profile {
-	{User: "UserOne", Password: "",JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
-	{User: "UserTwo", Password: "",JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
+var profiles = []profile.Profile{
+	{User: "UserOne", Password: "", JoinedAt: 2020, Toptracks: "TrackOne, TrackTwo, TrackThree", Following: "ArtistOne", Followers: 21},
+	{User: "UserTwo", Password: "", JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
+}
+
+var RecommendTracks = []home.Recommended{
+	{TopTracks: "TrackOne", ArtistComposed: "Artist One", Plays: 1000, DateReleased: 2020},
+	{TopTracks: "TrackTwo", ArtistComposed: "Artist Two", Plays: 10000, DateReleased: 2021},
+	{TopTracks: "TrackThree", ArtistComposed: "Artist Three", Plays: 10000, DateReleased: 2019},
 }
 
 var mainpage = "Hello World"
@@ -55,16 +62,19 @@ func main() {
 		router.GET("/", getMain)
 		router.GET("/profile", getProfile)
 		router.POST("/profile", postProfile)
-
+		router.GET("/recommended", getRecommendedTracks)
 	}
 
 	router.Run("localhost:8080")
-
 
 	if err := router.Run(":8080"); err != nil {
 		log.Fatal("Server Run Failed:")
 		log.Panic(err)
 	}
+}
+
+func getRecommendedTracks(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, RecommendTracks)
 }
 
 func getProfile(c *gin.Context) {
@@ -131,4 +141,3 @@ func getAlbumByID(c *gin.Context) {
 func getMain(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, mainpage)
 }
-
