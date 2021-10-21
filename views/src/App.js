@@ -24,11 +24,19 @@ class ApiRequest extends React.Component {
           .then((data) => console.log('About Api Details', data));
   }
 
+  profilerequest() {
+    const profileapi = 'http://localhost:8080/profile'
+    fetch(profileapi)
+      .then((response) => response.json())
+      .then((data) => console.log('Profile Request Details', data));
+  }
+
     render() {
     return(
         this.profilerequest(),
         this.albumrequest(),
         this.aboutrequest(),
+        this.profilerequest(),
       <div className="App">
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
