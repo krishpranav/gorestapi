@@ -2,7 +2,7 @@ package home
 
 type Recommended struct {
 	TopTracks string `json:"TopTracks"`
-	Plays string `json:"plays"`
+	Plays float64 `json:"plays"`
 	ArtistComposed string `json:"artistcomposed"`
-	DateReleased string `json:"datereleased"`
+	DateReleased float64 `json:"datereleased"`
 }
