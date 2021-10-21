@@ -38,7 +38,7 @@ var profiles = []profile.Profile{
 	{User: "UserTwo", Password: "", JoinedAt: 2021, Toptracks: "TrackFour, TrackFive, TrackSix", Following: "ArtistTwo, ArtistThree", Followers: 0},
 }
 
-var RecommendTracks = []home.Recommended{
+var Top = []home.Recommended{
 	{TopTracks: "TrackOne", ArtistComposed: "Artist One", Plays: 1000, DateReleased: 2020},
 	{TopTracks: "TrackTwo", ArtistComposed: "Artist Two", Plays: 10000, DateReleased: 2021},
 	{TopTracks: "TrackThree", ArtistComposed: "Artist Three", Plays: 10000, DateReleased: 2019},
@@ -62,7 +62,8 @@ func main() {
 		router.GET("/", getMain)
 		router.GET("/profile", getProfile)
 		router.POST("/profile", postProfile)
-		router.GET("/recommended", getRecommendedTracks)
+		router.GET("/toptracks", getRecommendedTracks)
+		router.POST("/toptracks", postNewTopTracks)
 	}
 
 	router.Run("localhost:8080")
@@ -74,7 +75,7 @@ func main() {
 }
 
 func getRecommendedTracks(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, RecommendTracks)
+	c.IndentedJSON(http.StatusOK, Top)
 }
 
 func getProfile(c *gin.Context) {
@@ -115,6 +116,17 @@ func postProfile(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newProfile)
 }
 
+func postNewTopTracks(c *gin.Context) {
+	var newTopTracks home.Recommended
+
+	if err := c.BindJSON(&newTopTracks); err != nil {
+		return
+	}
+
+	Top = append(Top, newTopTracks)
+	c.IndentedJSON(http.StatusAccepted, Top)
+}
+
 func postAlbums(c *gin.Context) {
 	var newAlbum album.Album
 
@@ -140,4 +152,10 @@ func getAlbumByID(c *gin.Context) {
 
 func getMain(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, mainpage)
+}
+
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
