@@ -1,9 +1,12 @@
+/* imports */
 import React from 'react';
 import logo from './logo.svg'
 import './App.css'
 
 /* api request class */
 class ApiRequest extends React.Component {
+
+  /* requests */
   albumrequest() {
     const album = 'http://localhost:8080/albums';
     fetch(album)
@@ -38,7 +41,7 @@ class ApiRequest extends React.Component {
       .then((response) => response.json())
       .then((data) => console.log('Recommended Album Details', data))
   }
-
+  
     render() {
     return(
 
@@ -59,5 +62,5 @@ class ApiRequest extends React.Component {
   }
 }
 
-
+/* export the apirequest class to run it :) */
 export default ApiRequest;
