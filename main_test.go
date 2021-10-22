@@ -44,12 +44,13 @@ func performFrontend(t *testing.T, err error) {
 	r.Run()
 }
 
+/* perform post request */
 func postRequest(t *testing.T, err error) {
 	r := gin.Default()
 
-	post := r.Group("/post")
+	posttest := r.Group("/posttest")
 	{
-		post.POST("/post", func(c *gin.Context) {
+		posttest.POST("/post", func(c *gin.Context) {
 
 		})
 	}
