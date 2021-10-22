@@ -40,14 +40,14 @@ class ApiRequest extends React.Component {
 
   /* recommende album api request */
   recommendealbumrequest() {
-    const recommendedapi = 'http://localhost:8080/recommended'
+    const recommendedapi = 'http://localhost:8080/toptracks'
     fetch(recommendedapi)
       .then((response) => response.json())
       .then((data) => console.log('Recommended Album Details', data))
   }
 
   prodcastrequest() {
-    const prodcastapi = 'http://localhost:8008/prodcast'
+    const prodcastapi = 'http://localhost:8080/prodcast'
     fetch(prodcastapi)
       .then((response) => response.json())
       .then((data) => console.log('Prodcast Album Details', data))
