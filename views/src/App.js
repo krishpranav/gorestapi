@@ -30,14 +30,6 @@ class ApiRequest extends React.Component {
           .then((data) => console.log('About Api Details', data));
   }
 
-  /* profile api request */
-  profilerequest() {
-    const profileapi = 'http://localhost:8080/profile'
-    fetch(profileapi)
-      .then((response) => response.json())
-      .then((data) => console.log('Profile Request Details', data));
-  }
-
   /* recommende album api request */
   recommendealbumrequest() {
     const recommendedapi = 'http://localhost:8080/toptracks'
@@ -46,6 +38,7 @@ class ApiRequest extends React.Component {
       .then((data) => console.log('Recommended Album Details', data))
   }
 
+  /* prodcast api request */
   prodcastrequest() {
     const prodcastapi = 'http://localhost:8080/prodcast'
     fetch(prodcastapi)
@@ -56,7 +49,6 @@ class ApiRequest extends React.Component {
     render() {
     return(
         /* call back the api request functions */
-        this.profilerequest(),
         this.albumrequest(),
         this.aboutrequest(),
         this.profilerequest(),
@@ -66,7 +58,7 @@ class ApiRequest extends React.Component {
       <div className="App">
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Check Out The Console For Album Details</h2>
+        <h2>The Api Response Will Be In The Console</h2>
         </header>
       </div>
     )
