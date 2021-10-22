@@ -44,6 +44,14 @@ var Top = []home.Recommended{
 	{TopTracks: "TrackThree", ArtistComposed: "Artist Three", Plays: 10000, DateReleased: 2019},
 }
 
+var Prodcast = []home.Prodcasts{
+	{ProdcastAuthor: "AuthorOne", Comments: "comment one, comment two", StreamedAt: 1.22, Liked: 100, Plays: 200},
+	{ProdcastAuthor: "AuthorTwo", Comments: "comment three, comment four", StreamedAt: 4.11, Liked: 200, Plays: 300},
+	{ProdcastAuthor: "AuthorThree", Comments: "comment five, comment six", StreamedAt: 2.22, Liked: 300, Plays: 400},
+	{ProdcastAuthor: "AuthorFour", Comments: "this is good", StreamedAt: 1.11, Liked: 400, Plays: 500},
+	{ProdcastAuthor: "AuthorFive", Comments: "awsome", StreamedAt: 12.12, Liked: 500, Plays: 600},
+}
+
 var mainpage = "Hello World"
 
 func main() {
@@ -56,14 +64,21 @@ func main() {
 		router.GET("/albums", getAlbums)
 		api.GET("/albums/:id", getAlbumByID)
 		router.POST("/albums", postAlbums)
+
 		router.GET("/about", getAbout)
+
 		router.GET("/artist", getArtistData)
 		router.POST("/artist", postArtist)
+
 		router.GET("/", getMain)
+
 		router.GET("/profile", getProfile)
 		router.POST("/profile", postProfile)
+
 		router.GET("/toptracks", getRecommendedTracks)
 		router.POST("/toptracks", postNewTopTracks)
+
+		router.GET("/prodcast", getProdcast)
 	}
 
 	router.Run("localhost:8080")
@@ -72,6 +87,10 @@ func main() {
 		log.Fatal("Server Run Failed:")
 		log.Panic(err)
 	}
+}
+
+func getProdcast(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, Prodcast)
 }
 
 func getRecommendedTracks(c *gin.Context) {
