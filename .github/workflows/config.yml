@@ -79,4 +79,9 @@ jobs:
         run: |
           cd api/profile
           go test
+      
+      - name: Running Test in home
+        run: |
+          cd api/home
+          go test
 
