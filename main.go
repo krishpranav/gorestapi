@@ -96,6 +96,7 @@ func main() {
 	}
 }
 
+/* start of get functions */
 func getProdcast(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, Prodcast)
 }
@@ -120,6 +121,25 @@ func getArtistData(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, artists)
 }
 
+func getAlbumByID(c *gin.Context) {
+	id := c.Param("id")
+
+	for _, a := range albums {
+		if a.ID == id {
+			c.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+func getMain(c *gin.Context) {
+	c.IndentedJSON(http.StatusCreated, mainpage)
+}
+
+/* end of get functions */
+
+/* start of post functions */
 func postArtist(c *gin.Context) {
 	var newArtist artist.Artist
 
@@ -164,21 +184,7 @@ func postAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
-func getAlbumByID(c *gin.Context) {
-	id := c.Param("id")
-
-	for _, a := range albums {
-		if a.ID == id {
-			c.IndentedJSON(http.StatusOK, a)
-			return
-		}
-	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
-}
-
-func getMain(c *gin.Context) {
-	c.IndentedJSON(http.StatusCreated, mainpage)
-}
+/* end of post functions */
 
 func checkError(err error) {
 	if err != nil {
