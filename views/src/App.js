@@ -45,16 +45,23 @@ class ApiRequest extends React.Component {
       .then((response) => response.json())
       .then((data) => console.log('Recommended Album Details', data))
   }
+
+  prodcastrequest() {
+    const prodcastapi = 'http://localhost:8008/prodcast'
+    fetch(prodcastapi)
+      .then((response) => response.json())
+      .then((data) => console.log('Prodcast Album Details', data))
+  }
   
     render() {
     return(
-
         /* call back the api request functions */
         this.profilerequest(),
         this.albumrequest(),
         this.aboutrequest(),
         this.profilerequest(),
         this.recommendealbumrequest(),
+        this.prodcastrequest(),
 
       <div className="App">
         <header className="App-header">
