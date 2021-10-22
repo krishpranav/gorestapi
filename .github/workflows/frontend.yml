@@ -11,3 +11,10 @@ jobs:
         with:
           node-version: 12
       - run: yarn
+
+      - name: Building Frontend
+        run: |
+          cd views/
+          yarn install
+          yarn build
+    
