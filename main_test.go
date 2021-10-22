@@ -1,9 +1,10 @@
 package main
 
 import (
+	"testing"
+
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
-	"testing"
 )
 
 /* perform a test request */
@@ -20,7 +21,6 @@ func performRequest(t *testing.T, err error) {
 		panic(err)
 	}
 
-
 }
 
 /* perform a test file for checking frontend is working */
@@ -34,6 +34,23 @@ func performFrontend(t *testing.T, err error) {
 			c.JSON(200, gin.H{
 				"message": "test",
 			})
+		})
+	}
+
+	if err != nil {
+		panic(err)
+	}
+
+	r.Run()
+}
+
+func postRequest(t *testing.T, err error) {
+	r := gin.Default()
+
+	post := r.Group("/post")
+	{
+		post.POST("/post", func(c *gin.Context) {
+
 		})
 	}
 
