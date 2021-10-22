@@ -6,7 +6,7 @@ import './App.css'
 /* api request class */
 class ApiRequest extends React.Component {
 
-  /* requests */
+  /* album api request */
   albumrequest() {
     const album = 'http://localhost:8080/albums';
     fetch(album)
@@ -14,13 +14,15 @@ class ApiRequest extends React.Component {
       .then((data) => console.log('Album Details', data));
   }
 
+  /* profile api request */
   profilerequest() {
       const profile = 'http://localhost:8080/profile';
       fetch(profile)
           .then((response) => response.json())
           .then((data) => console.log('Profile Details', data));
   }
-
+  
+  /* about api request */
   aboutrequest() {
       const aboutapi = 'http://localhost:8080/about';
       fetch(aboutapi)
@@ -28,6 +30,7 @@ class ApiRequest extends React.Component {
           .then((data) => console.log('About Api Details', data));
   }
 
+  /* profile api request */
   profilerequest() {
     const profileapi = 'http://localhost:8080/profile'
     fetch(profileapi)
@@ -35,6 +38,7 @@ class ApiRequest extends React.Component {
       .then((data) => console.log('Profile Request Details', data));
   }
 
+  /* recommende album api request */
   recommendealbumrequest() {
     const recommendedapi = 'http://localhost:8080/recommended'
     fetch(recommendedapi)
