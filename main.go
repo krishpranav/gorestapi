@@ -61,23 +61,30 @@ func main() {
 
 	api := router.Group("/api")
 	{
+		/* albums api */
 		router.GET("/albums", getAlbums)
-		api.GET("/albums/:id", getAlbumByID)
-		router.POST("/albums", postAlbums)
+		router.GET("/albums/:id", getAlbumByID)
+		api.POST("/albums", postAlbums)
 
+		/* about api */
 		router.GET("/about", getAbout)
 
+		/* artist api */
 		router.GET("/artist", getArtistData)
-		router.POST("/artist", postArtist)
+		api.POST("/artist", postArtist)
 
+		/* main index api */
 		router.GET("/", getMain)
 
+		/* profile api */
 		router.GET("/profile", getProfile)
-		router.POST("/profile", postProfile)
+		api.POST("/profile/:id", postProfile)
 
+		/* top tracks api */
 		router.GET("/toptracks", getRecommendedTracks)
-		router.POST("/toptracks", postNewTopTracks)
+		api.POST("/toptracks", postNewTopTracks)
 
+		/* prodcast api */
 		router.GET("/prodcast", getProdcast)
 	}
 
