@@ -34,9 +34,10 @@ $ go test
 ```
 
 ### Building Frontend:
-```
+```bash
 $ cd views/
 $ yarn build
 $ cd ../
 $ go run main.go
 ```
+- go to [localhost](http://localhost:8080) and in the console you can find the api request 
