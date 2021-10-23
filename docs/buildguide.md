@@ -32,3 +32,11 @@ $ curl http://localhost:8080/about
 ```
 $ go test
 ```
+
+### Building Frontend:
+```
+$ cd views/
+$ yarn build
+$ cd ../
+$ go run main.go
+```
