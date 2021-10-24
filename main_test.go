@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"os"
 	"testing"
 
 	"github.com/gin-gonic/contrib/static"
@@ -60,4 +62,14 @@ func postRequest(t *testing.T, err error) {
 	}
 
 	r.Run()
+}
+
+func sqlconnection(err error) {
+	file, err := os.Open("db.sql")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(file.Name() + "db sql")
+	}
+
 }
