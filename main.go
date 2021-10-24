@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
@@ -94,6 +96,17 @@ func main() {
 		log.Fatal("Server Run Failed:")
 		log.Panic(err)
 	}
+}
+
+/* just a example */
+func sqlconnection(err error) {
+	file, err := os.Open("db.sql")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(file.Name() + "db sql")
+	}
+
 }
 
 /* start of get functions */
