@@ -16,5 +16,4 @@ jobs:
         run: |
           cd views/
           yarn install
-          yarn build
     
