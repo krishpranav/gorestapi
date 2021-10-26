@@ -26,7 +26,7 @@ export default {
   },
 
   methods: {
-    async getData() {
+    async getAlbum() {
       try {
         const response = await this.$http.get(
           "http://localhost:8080/albums"
@@ -37,10 +37,11 @@ export default {
         console.log(error);
       }
     },
+
   },
 
   created() {
-    this.getData();
+    this.getAlbum();
   },
 };
 </script>
