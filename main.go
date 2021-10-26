@@ -18,11 +18,7 @@ var aboutapp = []about.Aboutapi{
 }
 
 var albums = []album.Album{
-	{ID: "1", Title: "ExampleOne", Artist: "ArtistOne", Price: 39.99},
-	{ID: "2", Title: "ExampleTwo", Artist: "ArtistTwo", Price: 39.99},
-	{ID: "3", Title: "ExampleThree", Artist: "ArtistThree", Price: 39.99},
-	{ID: "4", Title: "ExampleFour", Artist: "ArtistFour", Price: 39.99},
-	{ID: "5", Title: "ExampleFive", Artist: "ArtistFive", Price: 39.99},
+	{ID: "1", Title: "AlbumOne", Artist: "ArtistOne", Price: 39.99},
 }
 
 var artists = []artist.Artist{
