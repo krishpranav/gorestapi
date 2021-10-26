@@ -1,10 +1,11 @@
 <template>
   <div>
-    <div id="app" v-for="albums in albums" v-bind:key="albums.id">
+    <div id="app" v-for="albums in albums" v-bind:key="albums.id" >
       <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
       <HelloWorld msg="Album Details"/>
       <h2>{{ albums.title }}</h2>
       <p>{{ albums.body }}</p>
+      <!-- <h2>{{ aboutapi.title }} </h2> -->
     </div>
   </div>
 </template>
@@ -37,11 +38,24 @@ export default {
         console.log(error);
       }
     },
+    
+    async getAboutApi() {
+      try {
+        const aboutapi = await this.$http.get(
+          "http://localhost:8080/about"
+        );
+        this.aboutapi = aboutapi.data;  
+      } catch (error) {
+        console.log('OOPS');
+        console.log('error');
+      }
+    }
 
   },
 
   created() {
     this.getAlbum();
+    this.getAboutApi();
   },
 };
 </script>
