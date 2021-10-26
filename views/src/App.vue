@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div id="app" v-for="albums in albums" v-bind:key="albums.id">
+      <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+      <HelloWorld msg="Album Details"/>
+      <h2>{{ albums.title }}</h2>
+      <p>{{ albums.body }}</p>
+    </div>
   </div>
 </template>
 
@@ -10,10 +14,35 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+
   components: {
     HelloWorld
-  }
-}
+  },
+
+  data() {
+    return {
+      albums: [],
+    };
+  },
+
+  methods: {
+    async getData() {
+      try {
+        const response = await this.$http.get(
+          "http://localhost:8080/albums"
+        );
+        this.albums = response.data;
+      } catch (error) {
+        console.log('OOPS');
+        console.log(error);
+      }
+    },
+  },
+
+  created() {
+    this.getData();
+  },
+};
 </script>
 
 <style>
