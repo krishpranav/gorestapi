@@ -1,4 +1,6 @@
 import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class myComponent extends React.Component {
   componentDidMount() {
@@ -7,8 +9,20 @@ class myComponent extends React.Component {
       .then((response) => response.json())
       .then((data) => console.log('This is your data', data));
   }
+
   render() {
-    return <h1>Check The Api Request In The Console Soon The Frontend Will Be Updated With New UI</h1>;
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          View The Console For Api Request
+        </p>
+      </header>
+    </div>
+  );
+
   }
 }
 export default myComponent;
