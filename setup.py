@@ -19,8 +19,21 @@ def setupbackend():
     elif setuprest in N:
         print('OK BYE')
 
+def setupfrontned():
+    setupfront = input('Want to setup frontend Y / N >> ')
+
+    if setupfront in Y:
+        print('Setting up frontend')
+        os.system('cd views/')
+        time.sleep(1)
+        os.system('yarn install && yarn build')
+
+    elif setupfront in N:
+        print('OK BYE')
+
 def main():
     setupbackend()
+    setupfrontned()
 
 if __name__ == "__main__":
     print("SETUP SCRIPT")
