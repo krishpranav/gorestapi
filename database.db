@@ -1,4 +1,4 @@
-  CREATE TABLE `userinfo` (
+  CREATE TABLE `profile` (
         `uid` INTEGER PRIMARY KEY AUTOINCREMENT,
         `username` VARCHAR(64) NULL,
         `departname` VARCHAR(64) NULL,
