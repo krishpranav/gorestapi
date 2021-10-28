@@ -39,6 +39,13 @@ class RestApiFrontend extends React.Component {
       .then((data) => console.log('Top Tracks Api Request', data))
   }
 
+  prodcastapirequest() {
+    const prodcastrequest = 'http://localhost:8080/prodcast'
+    fetch(prodcastrequest)
+      .then((response) => response.json())
+      .then((data) => console.log('Prodcast Api Request', data))
+  }
+  
   render() {
 
     /** 
