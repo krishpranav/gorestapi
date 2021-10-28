@@ -7,9 +7,6 @@
 # system cache
 .DS_Store
 
-# go sum file
-go.sum
-
 # builded binary of main.go
 gorestapi
 
