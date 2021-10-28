@@ -5,8 +5,8 @@ import './App.css';
 class RestApiFrontend extends React.Component {
 
   componentDidMount() {
-    const apiUrl = 'http://localhost:8080/about';
-    fetch(apiUrl)
+    const aboutrequest = 'http://localhost:8080/about';
+    fetch(aboutrequest)
       .then((response) => response.json())
       .then((data) => console.log('This is your data', data));
   }
