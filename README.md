@@ -8,5 +8,12 @@ A Simple REST API Build Using Golang
 
 - get the installation guide from [here](https://github.com/krishpranav/gorestapi/blob/master/docs/buildguide.md)
 
+## Contributors:
+<br>
+ <a href="https://github.com/krishpranav/gorestapi/graphs/contributors">
+   <img src="https://contributors-img.web.app/image?repo=krishpranav/gorestapi" />
+</a>
+</br>
+
 ## Author:
 - krishpranav [github](https://github.com/krishpranav)
