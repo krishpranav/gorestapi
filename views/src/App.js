@@ -1,9 +1,17 @@
+/* imports */
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+/**
+ * Restapi frontend class
+ */
 class RestApiFrontend extends React.Component {
 
+  /**
+   * START
+   * Api call functions
+   */
   componentDidMount() {
     const aboutrequest = 'http://localhost:8080/about';
     fetch(aboutrequest)
@@ -45,6 +53,11 @@ class RestApiFrontend extends React.Component {
       .then((response) => response.json())
       .then((data) => console.log('Prodcast Api Request', data));
   }
+
+  /**
+   * END
+   * Api call functions
+   */
   
   render() {
 
@@ -78,4 +91,5 @@ class RestApiFrontend extends React.Component {
   }
 }
 
+/* export restapifrontend as a default app */
 export default RestApiFrontend;
