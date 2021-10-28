@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const link = 'learn react'
+  const link = 'http://reactjs.org'
   console.log(link);
 });
