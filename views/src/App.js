@@ -15,31 +15,48 @@ class RestApiFrontend extends React.Component {
     const albumrequest = 'http://localhost:8080/albums'
     fetch(albumrequest)
       .then((response) => response.json())
-      .then((data) => console.log('Album Request'));
+      .then((data) => console.log('Album Request', data));
   }
 
   artistapirequest() {
     const artistrequest = 'http://localhost:8080/artist'
     fetch(artistrequest)
       .then((response) => response.json())
-      .then((data) => console.log('Arist Request'))
+      .then((data) => console.log('Arist Request', data))
   }
 
   profileapirequest() {
     const profilerequest = 'http://localhost:8080/profile'
     fetch(profilerequest)
       .then((response) => response.json())
-      .then((data) => console.log('Profile Api Request'))
+      .then((data) => console.log('Profile Api Request', data))
+  }
+
+  toptracksapirequest() {
+    const toptracksrequest = 'http://localhost:8080/toptracks'
+    fetch(toptracksrequest)
+      .then((response) => response.json())
+      .then((data) => console.log('Top Tracks Api Request', data))
   }
 
   render() {
 
-    /* api request calling area */
+    /** 
+     * START
+     * api request calling area
+    */
     this.profileapirequest()
     this.albumapirequest()
     this.artistapirequest()
-    
+    this.toptracksapirequest()
 
+    /**
+     * END
+     */
+    
+    /**
+     * FRONTEND 
+     */
     return (
       <div className="App">
         <header className="App-header">
@@ -53,4 +70,5 @@ class RestApiFrontend extends React.Component {
 
   }
 }
+
 export default RestApiFrontend;
