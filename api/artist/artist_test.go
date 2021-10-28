@@ -5,10 +5,14 @@ import (
 	"testing"
 )
 
-var ArtistVar = []Artist {
+var ArtistVar = []Artist{
 	{Name: "Some", Location: "Some where in the world", JoinedAt: 100},
 }
 
-func ArtistTest(t *testing.T) {
+func ArtistTest(t *testing.T, err error) {
 	fmt.Println(ArtistVar)
+
+	if err != nil {
+		panic(err)
+	}
 }
