@@ -8,7 +8,7 @@ class RestApiFrontend extends React.Component {
     const aboutrequest = 'http://localhost:8080/about';
     fetch(aboutrequest)
       .then((response) => response.json())
-      .then((data) => console.log('This is your data', data));
+      .then((data) => console.log('About Api Request', data));
   }
 
   albumapirequest() {
@@ -16,6 +16,13 @@ class RestApiFrontend extends React.Component {
     fetch(albumrequest)
       .then((response) => response.json())
       .then((data) => console.log('Album Request'));
+  }
+
+  artistapirequest() {
+    const artistrequest = 'http://localhost:8080/artist'
+    fetch(artistrequest)
+      .then((response) => response.json())
+      .then((data) => console.log('Arist Request'))
   }
 
   render() {
