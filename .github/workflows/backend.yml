@@ -47,6 +47,11 @@ jobs:
           cd api/home
           go test
 
+      - name: Running test in database
+        run: |
+          cd database/
+          go test          
+
   macosbuild:
     runs-on: macos-latest
     steps:
@@ -90,3 +95,7 @@ jobs:
           cd api/home
           go test
 
+      - name: Running test in database
+        run: |
+          cd database/
+          go test
