@@ -3,7 +3,7 @@ name: Run The Frontend
 on: [push, pull_request]
 
 jobs:
-  test:
+  buildfrontendinlinux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,4 +17,18 @@ jobs:
           cd views/
           yarn install
           yarn build
-    
+
+  buildfrontendinmacos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn
+
+      - name: Building Frontend
+        run: |
+          cd views/
+          yarn install
+          yarn build
