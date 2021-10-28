@@ -17,3 +17,7 @@ A Simple REST API Build Using Golang
 
 ## Author:
 - krishpranav [github](https://github.com/krishpranav)
+
+### Social Media:
+- [twitter](https://twitter.com/krishpranav5)
+- [linkedin](https://www.linkedin.com/in/krishpranav/)
