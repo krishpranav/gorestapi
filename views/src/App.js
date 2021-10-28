@@ -25,9 +25,20 @@ class RestApiFrontend extends React.Component {
       .then((data) => console.log('Arist Request'))
   }
 
+  profileapirequest() {
+    const profilerequest = 'http://localhost:8080/profile'
+    fetch(profilerequest)
+      .then((response) => response.json())
+      .then((data) => console.log('Profile Api Request'))
+  }
+
   render() {
 
+    /* api request calling area */
+    this.profileapirequest()
     this.albumapirequest()
+    this.artistapirequest()
+    
 
     return (
       <div className="App">
