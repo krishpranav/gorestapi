@@ -22,28 +22,28 @@ class RestApiFrontend extends React.Component {
     const artistrequest = 'http://localhost:8080/artist'
     fetch(artistrequest)
       .then((response) => response.json())
-      .then((data) => console.log('Arist Request', data))
+      .then((data) => console.log('Arist Request', data));
   }
 
   profileapirequest() {
     const profilerequest = 'http://localhost:8080/profile'
     fetch(profilerequest)
       .then((response) => response.json())
-      .then((data) => console.log('Profile Api Request', data))
+      .then((data) => console.log('Profile Api Request', data));
   }
 
   toptracksapirequest() {
     const toptracksrequest = 'http://localhost:8080/toptracks'
     fetch(toptracksrequest)
       .then((response) => response.json())
-      .then((data) => console.log('Top Tracks Api Request', data))
+      .then((data) => console.log('Top Tracks Api Request', data));
   }
 
   prodcastapirequest() {
     const prodcastrequest = 'http://localhost:8080/prodcast'
     fetch(prodcastrequest)
       .then((response) => response.json())
-      .then((data) => console.log('Prodcast Api Request', data))
+      .then((data) => console.log('Prodcast Api Request', data));
   }
   
   render() {
