@@ -56,7 +56,7 @@ class RestApiFrontend extends React.Component {
     this.albumapirequest()
     this.artistapirequest()
     this.toptracksapirequest()
-
+    this.prodcastapirequest()
     /**
      * END
      */
