@@ -1,8 +1,11 @@
 package main
 
 import (
+	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
@@ -59,7 +62,7 @@ func main() {
 	// statement, _ = database.Prepare("INSERT INTO user (firstname, lastname) VALUES (?, ?)")
 	// statement.Exec("Krish", "Pranav")
 	// rows, _ := database.Query("SELECT uid, firstname, lastname FROM user")
-	
+
 	// var id int
 	// var fistname string
 	// var lastname string
@@ -119,9 +122,9 @@ func databaseconnection() {
 	statement, _ = database.Prepare("INSERT INTO user (firstname, lastname) VALUES (?, ?)")
 	statement.Exec("Krish", "Pranav")
 	rows, _ := database.Query("SELECT uid, firstname, lastname FROM user")
-	
-	var id int
-	var fistname string
+
+	var uid int
+	var firstname string
 	var lastname string
 
 	for rows.Next() {
