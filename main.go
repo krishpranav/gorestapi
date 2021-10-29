@@ -11,6 +11,7 @@ import (
 	"github.com/krishpranav/gorestapi/api/artist"
 	"github.com/krishpranav/gorestapi/api/home"
 	"github.com/krishpranav/gorestapi/api/profile"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 var aboutapp = []about.Aboutapi{
