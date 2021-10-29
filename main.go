@@ -51,6 +51,7 @@ var Prodcast = []home.Prodcasts{
 var mainpage = "Hello World"
 
 func main() {
+
 	router := gin.Default()
 
 	router.Use(static.Serve("/", static.LocalFile("./views/build", true)))
