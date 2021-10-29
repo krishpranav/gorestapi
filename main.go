@@ -76,7 +76,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.Use(static.Serve("/", static.LocalFile("./views/build", true)))
+	router.Use(static.Serve("/", static.LocalFile("./views/.nuxt", true)))
 
 	api := router.Group("/api")
 	{
@@ -115,6 +115,10 @@ func main() {
 	}
 }
 
+/**
+!!!!! TESTING !!!!!
+sqlite database connection is under testing
+*/
 func databaseconnection() {
 	database, _ := sql.Open("sqlite3", "./database.db")
 	statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS user (uid INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)")
