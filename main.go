@@ -76,7 +76,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.Use(static.Serve("/", static.LocalFile("./views/.nuxt", true)))
+	router.Use(static.Serve("/", static.LocalFile("./views/build/", true)))
 
 	api := router.Group("/api")
 	{
