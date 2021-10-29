@@ -52,6 +52,24 @@ var mainpage = "Hello World"
 
 func main() {
 
+	// database, _ := sql.Open("sqlite3", "./database.db")
+	// statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS user (uid INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)")
+	// statement.Exec()
+	// statement, _ = database.Prepare("INSERT INTO user (firstname, lastname) VALUES (?, ?)")
+	// statement.Exec("Krish", "Pranav")
+	// rows, _ := database.Query("SELECT uid, firstname, lastname FROM user")
+	
+	// var id int
+	// var fistname string
+	// var lastname string
+
+	// for rows.Next() {
+	// 	rows.Scan(&uid, &firstname, &lastname)
+	// 	fmt.Println(strconv.Itoa(uid) + ": " + firstname + " " + lastname)
+	// }
+
+	// databaseconnection()
+
 	router := gin.Default()
 
 	router.Use(static.Serve("/", static.LocalFile("./views/build", true)))
@@ -90,6 +108,24 @@ func main() {
 	if err := router.Run(":8080"); err != nil {
 		log.Fatal("Server Run Failed:")
 		log.Panic(err)
+	}
+}
+
+func databaseconnection() {
+	database, _ := sql.Open("sqlite3", "./database.db")
+	statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS user (uid INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)")
+	statement.Exec()
+	statement, _ = database.Prepare("INSERT INTO user (firstname, lastname) VALUES (?, ?)")
+	statement.Exec("Krish", "Pranav")
+	rows, _ := database.Query("SELECT uid, firstname, lastname FROM user")
+	
+	var id int
+	var fistname string
+	var lastname string
+
+	for rows.Next() {
+		rows.Scan(&uid, &firstname, &lastname)
+		fmt.Println(strconv.Itoa(uid) + ": " + firstname + " " + lastname)
 	}
 }
 
