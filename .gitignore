@@ -10,4 +10,5 @@
 # builded binary of main.go
 gorestapi
 
+# release folder
 release/

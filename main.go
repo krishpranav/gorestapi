@@ -56,27 +56,9 @@ var mainpage = "Hello World"
 
 func main() {
 
-	// database, _ := sql.Open("sqlite3", "./database.db")
-	// statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS user (uid INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)")
-	// statement.Exec()
-	// statement, _ = database.Prepare("INSERT INTO user (firstname, lastname) VALUES (?, ?)")
-	// statement.Exec("Krish", "Pranav")
-	// rows, _ := database.Query("SELECT uid, firstname, lastname FROM user")
-
-	// var id int
-	// var fistname string
-	// var lastname string
-
-	// for rows.Next() {
-	// 	rows.Scan(&uid, &firstname, &lastname)
-	// 	fmt.Println(strconv.Itoa(uid) + ": " + firstname + " " + lastname)
-	// }
-
-	// databaseconnection()
-
 	router := gin.Default()
 
-	router.Use(static.Serve("/", static.LocalFile("./views/build/", true)))
+	router.Use(static.Serve("/", static.LocalFile("./views/dist/", true)))
 
 	api := router.Group("/api")
 	{
@@ -116,9 +98,8 @@ func main() {
 }
 
 /**
-!!!!! TESTING !!!!!
-sqlite database connection is under testing
-*/
+ * TODO: database connection is under development soon this will be integerated :)
+ */
 func databaseconnection() {
 	database, _ := sql.Open("sqlite3", "./database.db")
 	statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS user (uid INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)")
