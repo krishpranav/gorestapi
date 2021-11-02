@@ -17,5 +17,3 @@ jobs:
           cd views/
           yarn install
           yarn build
-
-          yarn test
