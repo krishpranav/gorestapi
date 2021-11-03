@@ -10,7 +10,7 @@ import (
 /* frontend test class */
 func frontendtest(t *testing.T, err error) {
 	r := gin.Default()
-	r.Use(static.Serve("/", static.LocalFile("./views/build", true)))
+	r.Use(static.Serve("/", static.LocalFile("./views/test", true)))
 
 	testapi := r.Group("/test")
 	{
